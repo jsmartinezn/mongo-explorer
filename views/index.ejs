@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+  </head>
+  <body>
+    <h1>Seleccione la base de datos que desea ver:</h1>
+    <label for="pet-select">Choose a pet:</label>
+
+    <select name="bases" id="base-select">
+      <option value="">--Please choose an option--</option>
+      <% dbs.forEach((db)=>{ -%>
+      <option value=""> <%=db.name%></option>
+      <% }) -%>
+      <option value="dog">Dog</option>
+    </select>
+    <script src=
