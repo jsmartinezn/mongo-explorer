@@ -1,6 +1,7 @@
 const tableS = document.querySelector("#table");
 
-function downloadCSV(csv, filename) {
+//Este script fue sacado de https://www.codexworld.com/export-html-table-data-to-csv-using-javascript/ y fue adaptado para el proyecto
+const downloadCSV = (csv, filename) => {
   let csvFile;
   let downloadLink;
 
@@ -24,25 +25,24 @@ function downloadCSV(csv, filename) {
 
   // Click download link
   downloadLink.click();
-}
+};
 
-function exportTableToCSV(evt) {
+const exportTableToCSV = evt => {
   let csv = [];
-  let rows = document.querySelectorAll("#final");
+  let rows = document.querySelectorAll("table tr");
   const filename = "informacion.csv";
 
-  for (var i = 0; i < rows.length; i++) {
-    var row = [],
-      cols = rows[i].querySelectorAll("div");
+  for (let i = 0; i < rows.length; i++) {
+    const row = [],
+      cols = rows[i].querySelectorAll("td, th");
 
-    for (var j = 0; j < cols.length; j++) row.push(cols[j].innerText);
+    for (let j = 0; j < cols.length; j++) row.push(cols[j].innerText);
 
-    csv.push(row.join("\n"));
+    csv.push(row.join(","));
   }
-  console.log(csv);
   evt.preventDefault();
-  // Download CSV file
+
   downloadCSV(csv.join("\n"), filename);
-}
+};
 
 tableS.addEventListener("submit", exportTableToCSV);

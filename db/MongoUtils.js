@@ -3,7 +3,9 @@ const MongoClient = require("mongodb").MongoClient;
 function MongoUtils() {
   const mu = {},
     puerto = 27017,
-    server = "localhost";
+    server = "localhost",
+    nombre =
+      "mongodb+srv://sebas:<password>@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority";
 
   mu.connect = () => {
     const client = new MongoClient(`mongodb://${server}:${puerto}`);
@@ -33,7 +35,7 @@ function MongoUtils() {
         .db(_db)
         .collection(_col)
         .find({})
-        .sort({ timestamp: -1 })
+        .sort({ timestamp: 1 })
         .toArray()
         .finally(() => client.close())
     );

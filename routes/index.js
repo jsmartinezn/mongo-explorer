@@ -22,7 +22,4 @@ router.post("/:query", (req, res) => {
   res.redirect("/");
 });
 
-router.get("/xml", (req, res) => {
-  res.render("XMLTest.ejs");
-});
 module.exports = router;

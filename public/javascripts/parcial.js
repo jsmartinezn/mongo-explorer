@@ -14,6 +14,11 @@ const resp = query => {
 const crearFormulario = data => {
   const crear = document.querySelector("#crear");
   crear.innerHTML = "";
+
+  const title = document.createElement("div");
+  title.textContent = "Crear nuevo registro";
+  crear.appendChild(title);
+
   const query = document.getElementById("data");
   const valor = resp(query);
 
@@ -23,48 +28,74 @@ const crearFormulario = data => {
   crear.method = "POST";
 
   for (const campo in data[data.length - 1]) {
-    const div = document.createElement("div");
-    const label = document.createElement("label");
-    label.for = `${campo}`;
-    label.textContent = `${campo}`;
-    div.appendChild(label);
+    if (`${campo}` === "_id") {
+    } else {
+      const div = document.createElement("div");
 
-    const inp = document.createElement("input");
-    inp.type = `${campo}`;
-    inp.name = `${campo}`;
-    inp.id = `${campo}`;
-    inp.required = true;
-    div.appendChild(inp);
+      const label = document.createElement("label");
+      label.for = `${campo}`;
+      label.textContent = `${campo}:`;
+      div.appendChild(label);
 
-    crear.appendChild(div);
+      const enter = document.createElement("br");
+      div.appendChild(enter);
+
+      const inp = document.createElement("input");
+      inp.type = `${campo}`;
+      inp.name = `${campo}`;
+      inp.id = `${campo}`;
+      inp.required = true;
+      div.appendChild(inp);
+
+      crear.appendChild(div);
+    }
   }
 
   const divb = document.createElement("div");
+  const enter = document.createElement("br");
+  divb.appendChild(enter);
   const boton = document.createElement("button");
   boton.type = "submit";
   boton.textContent = "Insertar nuevo registro";
   divb.appendChild(boton);
   crear.appendChild(divb);
+
+  const download = document.querySelector("#table");
+  const nombre = document.createElement("div");
+  nombre.textContent = "Exportar los registros a un archico csv";
+  download.appendChild(nombre);
+  const boton2 = document.createElement("button");
+  boton2.type = "submit";
+  boton2.textContent = "Descargar";
+  download.appendChild(boton2);
 };
 
 const registrosF = data => {
   const final = document.querySelector("#final");
   final.innerHTML = "";
 
-  for (const i in data) {
-    const separacion = document.createElement("div");
-    const separacion2 = document.createElement("br");
-    const num = parseInt(i) + 1;
-    separacion.textContent = `Información del registro: ${num}`;
-    final.appendChild(separacion2);
-    final.appendChild(separacion);
-    for (const registro in data[i]) {
-      const contenido = document.createElement("div");
-      contenido.class = "contenido";
-      contenido.textContent = `${registro} = ${data[i][registro]}`;
-      final.appendChild(contenido);
-    }
+  const rHead = document.createElement("thead");
+  const titulo = document.createElement("tr");
+  for (const registro in data[data.length - 1]) {
+    const rotulo = document.createElement("th");
+    rotulo.textContent = `${registro}`;
+    titulo.appendChild(rotulo);
   }
+  rHead.appendChild(titulo);
+  final.appendChild(rHead);
+
+  const tBody = document.createElement("tbody");
+  for (const i in data) {
+    let separacion = document.createElement("tr");
+
+    for (const registro in data[i]) {
+      const contenido = document.createElement("td");
+      contenido.textContent = `${data[i][registro]}`;
+      separacion.appendChild(contenido);
+    }
+    tBody.appendChild(separacion);
+  }
+  final.appendChild(tBody);
 
   crearFormulario(data);
 };
@@ -85,9 +116,14 @@ const searchR = evt => {
 
 const collections = data => {
   const lista = document.querySelector("#lista");
-
+  const tabla = document.querySelector("#final");
+  const crearForm = document.querySelector("#crear");
+  const descarga = document.querySelector("#table");
   lista.innerHTML = "";
   regSearch.innerHTML = "";
+  tabla.innerHTML = "";
+  crearForm.innerHTML = "";
+  descarga.innerHTML = "";
 
   const separacion = document.createElement("div");
   separacion.textContent = "Selecciona la coleccion a visualizar";
