@@ -18,7 +18,7 @@ router.get("/col/:query", (req, res) => {
 });
 
 router.post("/:query", (req, res) => {
-  mu.crear(req.body, req.params.query);
+  mu.crear(req.body, req.params.query).then(res.redirect("/"));
 });
 
 module.exports = router;
