@@ -1,6 +1,13 @@
 const formSearch = document.querySelector("#search");
 const regSearch = document.querySelector("#form");
 
+//Para correr la aplicacion localmente comente la siguiente linea de codigo
+const urlFetch = "https://secure-brook-31340.herokuapp.com";
+//Para correr la aplicacion localmente comente la siguiente linea de codigo
+
+//Para correr la aplicacion localmente descomente la siguiente linea de codigo
+//const urlFetch = "http://localhost:3000";
+
 const resp = query => {
   for (let i = 0, len = query.options.length; i < len; i++) {
     const opt = query.options[i];
@@ -107,9 +114,7 @@ const searchR = evt => {
   const query2 = document.getElementById("select");
   const valor2 = resp(query2);
 
-  fetch(
-    `https://secure-brook-31340.herokuapp.com/col/${valor.value}_${valor2.value}`
-  )
+  fetch(`${urlFetch}/col/${valor.value}_${valor2.value}`)
     .then(coll => coll.json())
     .then(registrosF);
 
@@ -154,7 +159,7 @@ const onSearch = evt => {
   const query = document.getElementById("data");
   const valor = resp(query);
 
-  fetch(`https://secure-brook-31340.herokuapp.com/db/${valor.value}`)
+  fetch(`${urlFetch}/db/${valor.value}`)
     .then(coll => coll.json())
     .then(collections);
 

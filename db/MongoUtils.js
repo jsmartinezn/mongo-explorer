@@ -8,9 +8,12 @@ function MongoUtils() {
   mu.connect = () => {
     const pas = process.env.PASS;
 
-    const client = new MongoClient(
-      `mongodb+srv://sebas:${pas}@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority`
-    );
+    //Para correr la aplicacion localmente comente la siguiente linea de codigo
+    const urls = `mongodb+srv://sebas:${pas}@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority`;
+
+    //Para correr la aplicacion localmente descomente la siguiente linea de codigo
+    //const urls = `mongodb://${server}:${puerto}`;
+    const client = new MongoClient(urls);
     return client.connect();
   };
   mu.listar = () =>
