@@ -123,7 +123,7 @@ const searchR = evt => {
 const collections = data => {
   const lista = document.querySelector("#lista");
   const tabla = document.querySelector("#final");
-  const crearForm = document.querySelector("#crear");
+  const crearForm = document.querySelector("#row");
   const descarga = document.querySelector("#table");
   lista.innerHTML = "";
   regSearch.innerHTML = "";
