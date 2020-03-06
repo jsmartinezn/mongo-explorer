@@ -8,7 +8,11 @@ function MongoUtils() {
       "mongodb+srv://sebas:<password>@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority";
 
   mu.connect = () => {
-    const client = new MongoClient(`mongodb://${server}:${puerto}`);
+    const pas = process.env.PASS;
+
+    const client = new MongoClient(
+      `mongodb+srv://sebas:${pas}@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority`
+    );
     return client.connect();
   };
   mu.listar = () =>
