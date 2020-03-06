@@ -62,7 +62,7 @@ const crearFormulario = data => {
 
   const download = document.querySelector("#table");
   const nombre = document.createElement("div");
-  nombre.textContent = "Exportar los registros a un archico csv";
+  nombre.textContent = "Exportar los registros a un archivo csv";
   download.appendChild(nombre);
   const boton2 = document.createElement("button");
   boton2.type = "submit";
