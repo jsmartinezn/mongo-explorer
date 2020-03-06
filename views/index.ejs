@@ -2,21 +2,38 @@
 <html>
   <head>
     <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <h1>Seleccione la base de datos que desea ver:</h1>
-    <label for="pet-select">Choose a pet:</label>
+    <label for="base-select">Escoge una base de datos:</label>
 
     <form id="search">
-      <select name="bases" id="base-select">
-        <option value="">--Please choose an option--</option>
+      <select id="data">
         <% dbs.forEach((db)=>{ -%>
-        <option value=""> <%=db.name%></option>
+        <option value="<%=db.name%>"> <%=db.name%></option>
         <% }) -%>
-        <option value="dog">Dog</option>
       </select>
-      <button type="submit">buscar</button>
+      <button type="submit">Buscar colecciones</button>
     </form>
+    <br />
+    <div id="lista"></div>
+
+    <form id="form"></form>
+    <div id="final"></div>
+    <br />
+    <form id="crear"></form>
+
+    <form id="table">
+      <button type="submit">boton</button>
+    </form>
+
     <script src="/javascripts/parcial.js"></script>
+    <script src="/javascripts/csvExport.js"></script>
   </body>
 </html>
