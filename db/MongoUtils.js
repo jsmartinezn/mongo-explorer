@@ -3,13 +3,10 @@ const MongoClient = require("mongodb").MongoClient;
 function MongoUtils() {
   const mu = {},
     puerto = 27017,
-    server = "localhost",
-    nombre =
-      "mongodb+srv://sebas:<password>@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority";
+    server = "localhost";
 
   mu.connect = () => {
-    //const pas = process.env.PASS;
-    const pas = "sebas";
+    const pas = process.env.PASS;
 
     const client = new MongoClient(
       `mongodb+srv://sebas:${pas}@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority`
