@@ -2,10 +2,10 @@ const formSearch = document.querySelector("#search");
 const regSearch = document.querySelector("#form");
 
 //Para correr la aplicacion localmente comente la siguiente linea de codigo
-//const urlFetch = "https://secure-brook-31340.herokuapp.com";
+const urlFetch = "https://secure-brook-31340.herokuapp.com";
 
 //Para correr la aplicacion localmente descomente la siguiente linea de codigo
-const urlFetch = "http://localhost:3000";
+//const urlFetch = "http://localhost:3000";
 
 const resp = query => {
   for (let i = 0, len = query.options.length; i < len; i++) {
