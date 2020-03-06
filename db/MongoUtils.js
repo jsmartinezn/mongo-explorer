@@ -8,7 +8,8 @@ function MongoUtils() {
       "mongodb+srv://sebas:<password>@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority";
 
   mu.connect = () => {
-    const pas = process.env.PASS;
+    //const pas = process.env.PASS;
+    const pas = "sebas";
 
     const client = new MongoClient(
       `mongodb+srv://sebas:${pas}@robos-slq5d.mongodb.net/test?retryWrites=true&w=majority`

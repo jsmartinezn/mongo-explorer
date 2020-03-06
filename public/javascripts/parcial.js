@@ -107,7 +107,9 @@ const searchR = evt => {
   const query2 = document.getElementById("select");
   const valor2 = resp(query2);
 
-  fetch(`http://localhost:3000/col/${valor.value}_${valor2.value}`)
+  fetch(
+    `https://secure-brook-31340.herokuapp.com/col/${valor.value}_${valor2.value}`
+  )
     .then(coll => coll.json())
     .then(registrosF);
 
@@ -152,7 +154,7 @@ const onSearch = evt => {
   const query = document.getElementById("data");
   const valor = resp(query);
 
-  fetch(`http://localhost:3000/db/${valor.value}`)
+  fetch(`https://secure-brook-31340.herokuapp.com/db/${valor.value}`)
     .then(coll => coll.json())
     .then(collections);
 
