@@ -2,10 +2,10 @@ const formSearch = document.querySelector("#search");
 const regSearch = document.querySelector("#form");
 
 //Para correr la aplicacion localmente comente la siguiente linea de codigo
-const urlFetch = "https://secure-brook-31340.herokuapp.com";
+//const urlFetch = "https://secure-brook-31340.herokuapp.com";
 
 //Para correr la aplicacion localmente descomente la siguiente linea de codigo
-//const urlFetch = "http://localhost:3000";
+const urlFetch = "http://localhost:3000";
 
 const resp = query => {
   for (let i = 0, len = query.options.length; i < len; i++) {
@@ -79,6 +79,8 @@ const crearFormulario = data => {
 const registrosF = data => {
   const final = document.querySelector("#final");
   final.innerHTML = "";
+  const descarga = document.querySelector("#table");
+  descarga.innerHTML = "";
 
   const rHead = document.createElement("thead");
   const titulo = document.createElement("tr");
@@ -123,7 +125,7 @@ const searchR = evt => {
 const collections = data => {
   const lista = document.querySelector("#lista");
   const tabla = document.querySelector("#final");
-  const crearForm = document.querySelector("#row");
+  const crearForm = document.querySelector("#crear");
   const descarga = document.querySelector("#table");
   lista.innerHTML = "";
   regSearch.innerHTML = "";
