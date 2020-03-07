@@ -3,7 +3,7 @@
 Mongo explorer es una pagina web que tiene como finalidad administrar las bases de datos de un cluster
 
 ------------------------------------------------------------------------------
-# Correo la pagina Web Localmente
+# Correr la pagina Web Localmente
 Para correr la aplicacion localmente se necesita tener instalados estos complementos.
 
 ### Node.js
